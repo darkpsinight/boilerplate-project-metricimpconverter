@@ -1,15 +1,8 @@
 // Two helpers functions:
 function regexSplit(input) {
-  const matches = input.match(/([.\d\/]+) | ([a-zA-Z]+)/g);
-
-  const number = matches
-    ? matches.find((match) => /[.\d\/]+/.test(match))
-    : "1";
-  const string = matches
-    ? matches.find((match) => /[a-zA-Z]+/.test(match))
-    : "";
-
-  return [number, string];
+  let number = input.match(/[.\d\/]+/g || ["1"]);
+  let string = input.match(/[a-zA-Z]+/g)[0];
+  return [number[0], string];
 }
 
 function onlyOneDiv(input) {
@@ -37,9 +30,20 @@ function ConvertHandler() {
   };
 
   this.getUnit = function (input) {
-    let result;
-
-    return result;
+    const result = regexSplit(input)[1]?.toLowerCase();
+    console.log(result);
+    switch (result) {
+      case "km":
+      case "gal":
+      case "lbs":
+      case "mi":
+      case "kg":
+        return result;
+      case "l":
+        return "L";
+      default:
+        return undefined;
+    }
   };
 
   this.getReturnUnit = function (initUnit) {
