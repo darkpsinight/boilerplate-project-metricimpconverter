@@ -38,7 +38,7 @@ function ConvertHandler() {
 
   this.getUnit = function (input) {
     const result = regexSplit(input)[1]?.toLowerCase();
-    console.log(result);
+
     switch (result) {
       case "km":
       case "gal":
@@ -54,15 +54,44 @@ function ConvertHandler() {
   };
 
   this.getReturnUnit = function (initUnit) {
-    let result;
+    let unit = initUnit.toLowerCase();
+    console.log(unit);
 
-    return result;
+    switch (unit) {
+      case "km":
+        return "mi";
+      case "gal":
+        return "L";
+      case "lbs":
+        return "kg";
+      case "mi":
+        return "km";
+      case "kg":
+        return "lbs";
+      case "l":
+        return "gal";
+      default:
+        return undefined;
+    }
   };
 
   this.spellOutUnit = function (unit) {
-    let result;
-
-    return result;
+    switch (unit.toLowerCase()) {
+      case "mi":
+        return "miles";
+      case "lbs":
+        return "pounds";
+      case "gal":
+        return "gallons";
+      case "kg":
+        return "kilograms";
+      case "km":
+        return "kilometers";
+      case "l":
+        return "liters";
+      default:
+        return undefined;
+    }
   };
 
   this.convert = function (initNum, initUnit) {
