@@ -22,6 +22,6 @@ suite("Unit Tests", function () {
   });
 
   test("convertHandler.getNum should return an error on a double-fraction input", function () {
-    assert.strictEqual(() => convertHandler.getNum("3/2/3 mi"), "invalid number");
+    assert.equal(convertHandler.getNum("3/2/3 mi"), "invalid number");
   });
 });
