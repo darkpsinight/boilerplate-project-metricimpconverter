@@ -102,7 +102,7 @@ suite("Unit Tests", function () {
     done();
   });
 
-  test("convertHandler.getReturnUnit should correctly convert gal to L", function (done) {
+  test("convertHandler.convert should correctly convert gal to L", function (done) {
     let inputData = [10, "gal"];
     let expectedOutput = 37.8542;
     assert.approximately(
@@ -113,7 +113,7 @@ suite("Unit Tests", function () {
     done();
   });
 
-  test("Verifies if convertHandler.getReturnUnit accurately converts liters to gallons", function (done) {
+  test("Verifies if convertHandler.convert accurately converts liters to gallons", function (done) {
     let inputData = [10, "L"];
     let expectedOutput = 2.64172;
     assert.approximately(
@@ -124,7 +124,7 @@ suite("Unit Tests", function () {
     done();
   });
 
-  test("Verifies if convertHandler.getReturnUnit accurately converts miles to kilometers", function (done) {
+  test("Verifies if convertHandler.convert accurately converts miles to kilometers", function (done) {
     let inputData = [10, "mi"];
     let expectedOutput = 16.09344;
     assert.approximately(
@@ -135,7 +135,7 @@ suite("Unit Tests", function () {
     done();
   });
 
-  test("convertHandler.getReturnUnit should correctly convert km to mi", function (done) {
+  test("convertHandler.convert should correctly convert km to mi", function (done) {
     let inputData = [10, "km"];
     let expectedOutput = 6.21371;
     assert.approximately(
@@ -147,7 +147,7 @@ suite("Unit Tests", function () {
     done();
   });
 
-  test("convertHandler should correctly convert lbs to kg", function (done) {
+  test("convertHandler.convert should correctly convert lbs to kg", function (done) {
     let inputData = [10, "lbs"];
     let expectedOutput = 4.53592;
     assert.approximately(
@@ -158,7 +158,7 @@ suite("Unit Tests", function () {
     done();
   });
 
-  test("convertHandler should correctly convert kg to lbs", function (done) {
+  test("convertHandler.convert should correctly convert kg to lbs", function (done) {
     let inputData = [10, "kg"];
     let expectedOutput = 22.04624;
     assert.approximately(
