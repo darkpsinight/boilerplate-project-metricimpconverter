@@ -23,19 +23,11 @@ function onlyOneDiv(input) {
 // main function
 function ConvertHandler() {
   this.getNum = function (input) {
-    let result = regexSplit(input)[0];
+    const result = regexSplit(input)[0] || "1"; // if nothing is provided it will default to 1.
 
-    if (!result || isNaN(parseFloat(result))) {
-      return 1;
-    }
+    const fractionArray = onlyOneDiv(result);
 
-    let fractionArray = onlyOneDiv(result);
-
-    if (
-      !fractionArray ||
-      isNaN(parseFloat(fractionArray[0])) ||
-      isNaN(parseFloat(fractionArray[1] || "1"))
-    ) {
+    if (isNaN(parseFloat(fractionArray[0])) || isNaN(parseFloat(fractionArray[1] || "1"))) {
       return "invalid number";
     }
 
