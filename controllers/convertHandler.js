@@ -20,6 +20,7 @@ function onlyOneDiv(input) {
   return fractionParts;
 }
 
+// main function
 function ConvertHandler() {
   this.getNum = function (input) {
     let result = regexSplit(input)[0];
@@ -30,7 +31,7 @@ function ConvertHandler() {
       isNaN(parseFloat(fractionArray[0])) ||
       isNaN(parseFloat(fractionArray[1] || "1"))
     ) {
-      return undefined;
+      return "invalid number";
     }
 
     return parseFloat(fractionArray[0]) / parseFloat(fractionArray[1] || "1");
@@ -47,15 +48,14 @@ function ConvertHandler() {
       case "kg":
         return result;
       case "l":
-        return "L";
+        return "L"; // should be represented as an uppercase 'L'
       default:
-        return undefined;
+        return "invalid unit";
     }
   };
 
   this.getReturnUnit = function (initUnit) {
     let unit = initUnit.toLowerCase();
-    console.log(unit);
 
     switch (unit) {
       case "km":
@@ -98,15 +98,44 @@ function ConvertHandler() {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
+
+    //console.log(initNum, initUnit);
+
+    let unit = initUnit.toLowerCase();
     let result;
 
-    return result;
+    //console.log(unit);
+
+    switch (unit) {
+      case "km":
+        result = initNum / miToKm;
+        break;
+      case "gal":
+        result = initNum * galToL;
+        break;
+      case "lbs":
+        result = initNum * lbsToKg;
+        break;
+      case "mi":
+        result = initNum * miToKm;
+        break;
+      case "l":
+        result = initNum / galToL;
+        break;
+      case "kg":
+        result = initNum / lbsToKg;
+        break;
+      default:
+        return undefined;
+    }
+
+    return parseFloat(result.toFixed(5)); // rounded to 5 decimals
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    let result;
-
-    return result;
+    return `${initNum} ${this.spellOutUnit(
+      initUnit
+    )} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
   };
 }
 
