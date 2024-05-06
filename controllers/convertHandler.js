@@ -24,6 +24,11 @@ function onlyOneDiv(input) {
 function ConvertHandler() {
   this.getNum = function (input) {
     let result = regexSplit(input)[0];
+
+    if (!result || isNaN(parseFloat(result))) {
+      return 1;
+    }
+
     let fractionArray = onlyOneDiv(result);
 
     if (
