@@ -96,12 +96,8 @@ function ConvertHandler() {
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
 
-    //console.log(initNum, initUnit);
-
     let unit = initUnit.toLowerCase();
     let result;
-
-    //console.log(unit);
 
     switch (unit) {
       case "km":
